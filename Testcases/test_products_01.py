@@ -3,7 +3,7 @@ import sys
 sys.path.append(".")
 
 import unittest
-# import time
+import time
 
 from Pages.login_page import LoginPage
 from Pages.products_page import ProductsPage
@@ -30,8 +30,10 @@ class TestProduct(BaseTest):
         # total = products_page.get_badge_total()
         # print(total)
         # products_page.click_badge_icon()
-        products_page.click_add_to_cart_button(1)
-        products_page.click_remove_button(1)
+        # products_page.click_add_to_cart_button(1)
+        # products_page.click_remove_button(1)
+        time.sleep(5)
+        products_page.get_all_products_info()
 
 
 if __name__ == "__main__":

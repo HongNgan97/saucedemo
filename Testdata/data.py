@@ -26,3 +26,7 @@ class Data():
     def get_account_json(self):
         utility = Utility()
         return utility.read_json(Data.ACCOUNT_JSON_FILE)
+
+    # def get_message_json(self):
+       # utility = Utility()
+        # return utility.read_json(Data.MESSAGE_JSON_FILE)
