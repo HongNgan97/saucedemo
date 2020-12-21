@@ -51,3 +51,24 @@ class BasePage(object):
         WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
         elements = self.driver.find_elements(*by_locator)
         return len(elements)
+
+    def is_visible(self, by_locator):
+        message = "Check the element with the locator '{}' is visible or not"
+        logging.info(message.format(','.join(by_locator)))
+
+        element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+        return element.is_displayed()
+
+    def is_invisible(self, by_locator):
+        message = "Check the element with the locator '{}' is visible or not"
+        logging.info(message.format(','.join(by_locator)))
+
+        flag = False
+        try:
+            element = self.driver.find_element(by_locator)
+            element.is_displayed()
+        except:
+            flag = True
+            pass
+
+        return flag

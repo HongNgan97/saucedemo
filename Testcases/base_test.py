@@ -18,6 +18,8 @@ class BaseTest(unittest.TestCase):
         # self.driver = webdriver.Firefox(executable_path=r'Drivers\geckodriver.exe')
         self.driver = self.startBrowser(browser)
         self.driver.maximize_window()
+        self.driver.set_page_load_timeout(200)
+        self.driver.implicitly_wait(120)
 
     @classmethod
     def tearDown(self):

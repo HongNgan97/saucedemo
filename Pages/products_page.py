@@ -3,6 +3,7 @@ import logging
 from Objects.product import Product
 from Pages.base_page import BasePage
 from Locators.products_page_locator import ProductsPageLocators
+from Testdata.data import Data
 
 
 class ProductsPage(BasePage):
@@ -38,13 +39,7 @@ class ProductsPage(BasePage):
         name = self.get_text(ProductsPageLocators.LABEL_PRODUCT_NAME(index))
         desc = self.get_text(ProductsPageLocators.LABEL_PRODUCT_DESC(index))
         price = self.get_text(ProductsPageLocators.LABEL_PRODUCT_PRICE(index))
-
-        product = Product(name, desc, price)
-        print(product)
-        # print(name)
-        # print(desc)
-        # print(price)
-        return product
+        return Product(name, desc, price)
 
     def get_all_products_info(self):
         products = []
@@ -52,3 +47,13 @@ class ProductsPage(BasePage):
             products.append(self.get_product_info(i + 1))
 
         return products
+
+    def read_products_from_json(self):
+        data = Data()
+        return data.read_products_from_json()
+
+    def does_remove_button_exist(self, index):
+        return self.is_visible(ProductsPageLocators.BUTTON_REMOVE(index))
+
+    def does_add_button_exist(self, index):
+        return self.is_visible(ProductsPageLocators.BUTTON_ADD_TO_CART(index))
