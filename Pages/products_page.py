@@ -17,14 +17,14 @@ class ProductsPage(BasePage):
     def count_broken_images(self):
         return self.get_elements_size(ProductsPageLocators.IMAGE_BROKEN)
 
-    def get_badge_total(self):
-        index = 0
-        try:
-            text = self.get_text(ProductsPageLocators.ICON_BADGE_HAS_ITEMS)
-            index = int(text)
-        except:
-            return 0
-        return index
+    # def get_badge_total(self):
+    #     index = 0
+    #     try:
+    #         text = self.get_text(ProductsPageLocators.ICON_BADGE_HAS_ITEMS)
+    #         index = int(text)
+    #     except:
+    #         return 0
+    #     return index
 
     def click_badge_icon(self):
         self.click(ProductsPageLocators.ICON_BADGE_NO_ITEM)
@@ -57,3 +57,14 @@ class ProductsPage(BasePage):
 
     def does_add_button_exist(self, index):
         return self.is_visible(ProductsPageLocators.BUTTON_ADD_TO_CART(index))
+
+    def get_product_badge(self):
+        total = 0
+        try:
+            total = self.get_text(ProductsPageLocators.ICON_BADGE_HAS_ITEMS)
+        except:
+            pass
+        return int(total)
+
+    def is_product_badge_invisible(self):
+        return self.is_invisible(ProductsPageLocators.ICON_BADGE_HAS_ITEMS)

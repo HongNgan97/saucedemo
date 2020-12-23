@@ -24,7 +24,7 @@ class TestProduct(BaseTest):
         super().tearDown()
 
     def test_product(self):
-        products = Data.read_products_from_json(self)
+        products = Data.getProducts_json(self)
         # for index, expected_product in enumerate(products, start=1):
         #     print(expected_product)
 
@@ -51,9 +51,11 @@ class TestProduct(BaseTest):
             '"Add & remove all products"'
             products_page.click_add_to_cart_button(index)
             self.assertTrue(products_page.does_remove_button_exist(index))
+            self.assertEqual(1, products_page.get_product_badge())
 
             products_page.click_remove_button(index)
             self.assertTrue(products_page.does_add_button_exist(index))
+            self.assertTrue(products_page.is_product_badge_invisible())
 
 
 if __name__ == "__main__":

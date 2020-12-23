@@ -8,7 +8,7 @@ sys.path.append(".")
 from Utils.utility import Utility
 
 
-class Data():
+class Data:
     BASE_URL = 'https://www.saucedemo.com/'
     USERNAME = 'standard_user'
     # USERNAME = 'locked_out_user'
@@ -34,14 +34,22 @@ class Data():
        # utility = Utility()
         # return utility.read_json(Data.MESSAGE_JSON_FILE)
 
-    def read_products_from_json(self):
+    def getProducts_json(self):
         products = []
-
-        with open(Data.PRODUCTS_JSON_FILE) as jsonfile:
-            reader = json.load(jsonfile)
-            for row in reader['products']:
-                product = Product(row['name'], row['desc'], row['price'])
-                products.append(product)
-        jsonfile.close()
-
+        data = Utility.read_json(Data.PRODUCTS_JSON_FILE)
+        for item in data['products']:
+            product = Product(item['name'], item['desc'], item['price'])
+            products.append(product)
         return products
+
+    # def read_products_from_json(self):
+    #     products = []
+    #
+    #     with open(Data.PRODUCTS_JSON_FILE) as jsonfile:
+    #         reader = json.load(jsonfile)
+    #         for row in reader['products']:
+    #             product = Product(row['name'], row['desc'], row['price'])
+    #             products.append(product)
+    #     jsonfile.close()
+    #
+    #     return products
