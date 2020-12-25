@@ -1,7 +1,7 @@
 import json
 import os
 
-from Objects.product import Product
+# from Objects.product import Product
 
 
 class Utility:

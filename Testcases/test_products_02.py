@@ -3,6 +3,7 @@ import sys
 
 from Objects.checkout_step_one import CheckoutStepOne
 from Pages.checkout_step_one_page import CheckoutStepOnePage
+from Pages.checkout_step_two_page import CheckoutStepTwoPage
 from Utils import assertion
 from Utils.assertion import Assertion
 
@@ -56,9 +57,18 @@ class TestProduct02(BaseTest):
         cart_page.click_checkout_button()
 
         checkout_step_one_page = CheckoutStepOnePage(self.driver)
-        checkoutStepOne = CheckoutStepOne('fname', 'lname', 'zipcode')
-        checkout_step_one_page.add_checkout_info(checkoutStepOne)
+        checkoutstepone = CheckoutStepOne('fname', 'lname', 'zipcode')
+        checkout_step_one_page.add_checkout_info(checkoutstepone)
         checkout_step_one_page.click_continue()
+
+        checkout_step_two_page = CheckoutStepTwoPage(self.driver)
+        # compare selected products in cart page and checkout two page
+        for index in [1, 2, 3]:
+            actual_product = checkout_step_two_page.get_product_info(index)
+            expected_product = cart_page.get_product_info(index)
+            assertion.compare_products(actual_product, expected_product)
+
+        checkout_step_two_page.click_finish()
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import logging
 
 from Objects.product import Product
 from Pages.base_page import BasePage
-from Locators.products_page_locator import ProductsPageLocators
+from Locators.products_page_locators import ProductsPageLocators
 from Testdata.data import Data
 
 

@@ -1,6 +1,6 @@
 import logging
 
-from Locators.checkout_step_one_page_locator import CheckoutOnePageLocator
+from Locators.checkout_step_one_page_locators import CheckoutOnePageLocator
 from Pages.base_page import BasePage
 
 
