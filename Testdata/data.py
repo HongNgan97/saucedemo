@@ -19,8 +19,8 @@ class Data:
     # PASSWORD = 'secret_sauce!'
     BROWSER = 'Chrome'
 
-    PRODUCTS_CSV_FILE = './Testdata/products.csv'
-    PRODUCTS_JSON_FILE = './Testdata/products.json'
+    PRODUCTS_CSV_FILE = 'Testdata/products.csv'
+    PRODUCTS_JSON_FILE = 'Testdata/products.json'
 
     # def get_account_csv(self):
     #     utility = Utility()
