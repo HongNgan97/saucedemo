@@ -1,23 +1,22 @@
 import logging
 import sys
-
-from Objects.checkout_step_one import CheckoutStepOne
-from Pages.checkout_step_one_page import CheckoutStepOnePage
-from Pages.checkout_step_two_page import CheckoutStepTwoPage
-from Utils import assertion
-from Utils.assertion import Assertion
-
-sys.path.append(".")
-
 import unittest
 import time
 
+sys.path.append(".")
+
+from Objects.checkout_step_one import CheckoutStepOne
+from Objects.account import Account
+
+from Pages.checkout_step_one_page import CheckoutStepOnePage
+from Pages.checkout_step_two_page import CheckoutStepTwoPage
 from Pages.login_page import LoginPage
 from Pages.products_page import ProductsPage
 from Pages.cart_page import CartPage
 from Testcases.base_test import BaseTest
 from Testdata.data import Data
-from Objects.account import Account
+
+from Utils.assertion import Assertion
 
 
 class TestProduct02(BaseTest):
