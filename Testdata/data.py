@@ -20,7 +20,8 @@ class Data:
     BROWSER = 'Chrome'
 
     PRODUCTS_CSV_FILE = 'Testdata/products.csv'
-    PRODUCTS_JSON_FILE = 'Testdata/products.json'
+    # PRODUCTS_JSON_FILE = 'Testdata/products.csv'
+    PRODUCTS_JSON_FILE = '/Users/hongngan/Desktop/SauceDemo-master/Testdata/products.json'
 
     # def get_account_csv(self):
     #     utility = Utility()

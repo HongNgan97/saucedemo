@@ -1,6 +1,6 @@
 import json
 import os
-
+import re
 # from Objects.product import Product
 
 
@@ -34,3 +34,13 @@ class Utility:
     #     print(data['products'])
     #     return data
 
+    def convert_string_to_float(self, str):
+        try:
+            return float(re.findall('\d+\.\d+', str)[0])
+        except:
+            return 0.00
+
+    def multiple(self, quantity, price):
+        temp_price = self.convert_string_to_float(price)
+        result = int(quantity) * temp_price
+        return result

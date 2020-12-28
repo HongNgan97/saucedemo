@@ -1,13 +1,16 @@
-import logging
+# import logging
 import sys
 import unittest
-import time
+# import time
+
+from Utils.utility import Utility
 
 sys.path.append(".")
 
 from Objects.checkout_step_one import CheckoutStepOne
 from Objects.account import Account
 
+from Locators.check_out_step_two_page_locators import CheckoutTwoPageLocator
 from Pages.checkout_step_one_page import CheckoutStepOnePage
 from Pages.checkout_step_two_page import CheckoutStepTwoPage
 from Pages.login_page import LoginPage
@@ -62,12 +65,33 @@ class TestProduct02(BaseTest):
 
         checkout_step_two_page = CheckoutStepTwoPage(self.driver)
         # compare selected products in cart page and checkout two page
+        total_price = 0.00
         for index in [1, 2, 3]:
             actual_product = checkout_step_two_page.get_product_info(index)
-            expected_product = cart_page.get_product_info(index)
+            expected_product = products[index - 1]
             assertion.compare_products(actual_product, expected_product)
+            print(actual_product.quantity)
+            total_price += Utility().multiple(actual_product.quantity, actual_product.price)
 
-        checkout_step_two_page.click_finish()
+        payment_info = checkout_step_two_page.get_payment_info()
+        shipping_info = checkout_step_two_page.get_shipping_info()
+        self.assertEqual('SauceCard #31337', payment_info)
+        self.assertEqual('FREE PONY EXPRESS DELIVERY!', shipping_info)
+
+        # print(checkout_step_two_page.get_item_total())
+        # print(checkout_step_two_page.get_tax())
+        # print(checkout_step_two_page.get_total())
+
+        print(total_price)
+        self.assertEqual(total_price, checkout_step_two_page.get_item_total())
+
+        actual_tax = total_price * 0.08004
+        self.assertEqual(float("{:.2f}".format(actual_tax)), checkout_step_two_page.get_tax())
+        print(float("{:.2f}".format(actual_tax)))
+
+        actual_total = total_price + actual_tax
+        self.assertEqual(float("{:.2f}".format(actual_total)), checkout_step_two_page.get_total())
+        print(float("{:.2f}".format(actual_total)))
 
 
 if __name__ == "__main__":

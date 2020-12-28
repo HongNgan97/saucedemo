@@ -7,8 +7,12 @@ class CheckoutTwoPageLocator(object):
     CART_ITEM = "//div[@class='cart_list']//div[@class='cart_item']["
     BUTTON_CANCEL = (By.XPATH, "//a[@class='cart_cancel_link btn_secondary'][text()='CANCEL']")
 
-    LABEL_PAYMENT_INFO = (By.XPATH, "//div[@class='summary_value_label'][text()='SauceCard #31337']")
-    LABEL_SHIPPING_INFO = (By.XPATH, "//div[@class='summary_value_label'][text()='FREE PONY EXPRESS DELIVERY!']")
+    LABEL_PAYMENT_INFO = (By.XPATH, "//div[@class='summary_value_label'][1]")
+    LABEL_SHIPPING_INFO = (By.XPATH, "//div[@class='summary_value_label'][2]")
+
+    LABEL_ITEM_TOTAL = (By.XPATH, "//div[@class='summary_subtotal_label']")
+    LABEL_TAX = (By.XPATH, "//div[@class='summary_tax_label']")
+    LABEL_TOTAL = (By.XPATH, "//div[@class='summary_total_label']")
 
     PART1 = "//div[@class='cart_item']["
 
