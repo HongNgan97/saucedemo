@@ -30,7 +30,6 @@ class Utility:
     #             data.append(row)
     #             print(row)
     #     jsonfile.close()
-    #
     #     print(data['products'])
     #     return data
 

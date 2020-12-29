@@ -43,8 +43,6 @@ class BasePage(object):
     def current_url(self):
         return self.driver.current_url
 
-        # this function performs click on web element whose locator is passed to it.
-
     def get_elements_size(self, by_locator):
         message = "Get the element size with locator '{}'"
         logging.info(message.format(','.join(by_locator)))

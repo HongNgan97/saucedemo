@@ -1,4 +1,4 @@
-import json
+# import json
 import sys
 
 from Objects.product import Product
@@ -32,8 +32,8 @@ class Data:
     #     return utility.read_json(Data.ACCOUNT_JSON_FILE)
 
     # def get_message_json(self):
-       # utility = Utility()
-        # return utility.read_json(Data.MESSAGE_JSON_FILE)
+    #    utility = Utility()
+    #     return utility.read_json(Data.MESSAGE_JSON_FILE)
 
     def getProducts_json(self):
         products = []

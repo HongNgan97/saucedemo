@@ -17,15 +17,6 @@ class ProductsPage(BasePage):
     def count_broken_images(self):
         return self.get_elements_size(ProductsPageLocators.IMAGE_BROKEN)
 
-    # def get_badge_total(self):
-    #     index = 0
-    #     try:
-    #         text = self.get_text(ProductsPageLocators.ICON_BADGE_HAS_ITEMS)
-    #         index = int(text)
-    #     except:
-    #         return 0
-    #     return index
-
     def click_badge_icon(self):
         self.click(ProductsPageLocators.ICON_BADGE_NO_ITEM)
 
@@ -45,12 +36,11 @@ class ProductsPage(BasePage):
         products = []
         for i in range(6):
             products.append(self.get_product_info(i + 1))
-
         return products
 
     def read_products_from_json(self):
         data = Data()
-        return data.read_products_from_json()
+        return data.getProducts_json()
 
     def does_remove_button_exist(self, index):
         return self.is_visible(ProductsPageLocators.BUTTON_REMOVE(index))

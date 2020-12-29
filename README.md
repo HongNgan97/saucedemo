@@ -25,4 +25,8 @@ Allure Pytest Plugin
         $ py.test --alluredir=<%allure_result_folder%> ./tests
         $ allure serve <%allure_result_folder%>`
 
-
+Run python on terminal
+    >>> python
+    >>> import re
+    - return an array ....
+    >>> re.findall("\d+\.\d+", "Current Level: 13.4 db.") ['13.4']

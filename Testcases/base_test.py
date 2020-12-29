@@ -15,7 +15,6 @@ class BaseTest(unittest.TestCase):
         utility = Utility()
         browser = utility.get_browser()
 
-        # self.driver = webdriver.Firefox(executable_path=r'Drivers\geckodriver.exe')
         self.driver = self.startBrowser(browser)
         self.driver.maximize_window()
         self.driver.set_page_load_timeout(200)

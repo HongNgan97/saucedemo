@@ -5,7 +5,7 @@ from Utils.assertion import Assertion
 sys.path.append(".")
 
 import unittest
-import time
+# import time
 
 from Pages.login_page import LoginPage
 from Pages.products_page import ProductsPage

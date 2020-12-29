@@ -3,7 +3,6 @@ import logging
 from Objects.product import Product
 from Pages.base_page import BasePage
 from Locators.cart_page_locators import CartLocators
-from Testdata.data import Data
 
 
 class CartPage(BasePage):
